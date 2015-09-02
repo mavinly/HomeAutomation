@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation.Library
 {
-    class DoorSwitchReading
+    public class DoorSwitchReading
     {
-        int ID { get; set; }
-        int SensorID { get; set; }
-        bool DoorOpen { get; set; }
-        DateTime ReadingDateTime { get; set; }
+        public int ID { get; set; }
+        public int SensorID { get; set; }
+        public bool DoorOpen { get; set; }
+        public DateTime ReadingDateTime { get; set; }
     }
 }
