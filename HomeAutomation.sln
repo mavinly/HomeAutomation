@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Web", "HomeA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Web.Tests", "HomeAutomation.Web.Tests\HomeAutomation.Web.Tests.csproj", "{D6CBC48E-4C11-4902-AFBB-1C2B0BDA611D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Library", "HomeAutomation.Library\HomeAutomation.Library.csproj", "{CB6F8EEB-97D6-400E-B987-76AC7621E031}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.BusinessServices", "HomeAutomation.Library\HomeAutomation.BusinessServices.csproj", "{CB6F8EEB-97D6-400E-B987-76AC7621E031}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.DAL", "HomeAutomation.DAL\HomeAutomation.DAL.csproj", "{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}"
 EndProject
