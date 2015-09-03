@@ -7,8 +7,8 @@
     <ProjectGuid>{CB6F8EEB-97D6-400E-B987-76AC7621E031}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>HomeAutomation.Library</RootNamespace>
-    <AssemblyName>HomeAutomation.Library</AssemblyName>
+    <RootNamespace>HomeAutomation.BusinessServices</RootNamespace>
+    <AssemblyName>HomeAutomation.BusinessServices</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,6 +44,8 @@
     <Compile Include="DoorSwitchReading.cs" />
     <Compile Include="IDoorSwitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorReading\ISensorReading.cs" />
+    <Compile Include="SensorReading\SensorReading.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

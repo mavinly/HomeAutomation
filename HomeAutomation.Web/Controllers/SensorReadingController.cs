@@ -4,34 +4,42 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HomeAutomation.BusinessServices.SensorReading;
 
 namespace HomeAutomation.Web.Controllers
 {
-    public class DoorSwitchController : ApiController
+    public class SensorReadingController : ApiController
     {
-        // GET: api/DoorSwitch
+        ISensorReading _SensorReading;
+        public SensorReadingController(ISensorReading sr)
+        {
+            _SensorReading = sr;
+        }
+
+        // GET: api/SensorReading
         public IEnumerable<string> Get()
         {
             return new string[] { "value1", "value2" };
         }
 
-        // GET: api/DoorSwitch/5
+        // GET: api/SensorReading/5
         public string Get(int id)
         {
             return "value";
         }
 
-        // POST: api/DoorSwitch
-        public void Post([FromBody] value)
+        // POST: api/SensorReading
+        public void Post([FromBody]string value)
         {
+            _SensorReading.RecieveSensorReading(value);
         }
 
-        // PUT: api/DoorSwitch/5
+        // PUT: api/SensorReading/5
         public void Put(int id, [FromBody]string value)
         {
         }
 
-        // DELETE: api/DoorSwitch/5
+        // DELETE: api/SensorReading/5
         public void Delete(int id)
         {
         }
