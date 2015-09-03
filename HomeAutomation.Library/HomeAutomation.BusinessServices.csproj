@@ -44,7 +44,10 @@
     <Compile Include="DoorSwitchReading.cs" />
     <Compile Include="IDoorSwitch.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SensorReading\ISensorItem.cs" />
     <Compile Include="SensorReading\ISensorReading.cs" />
+    <Compile Include="SensorReading\SensorFactory.cs" />
+    <Compile Include="SensorReading\SensorItems\DoorSwitchItem.cs" />
     <Compile Include="SensorReading\SensorReading.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
