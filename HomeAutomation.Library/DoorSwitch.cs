@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation.BusinessServices
 {
-    class DoorSwitch : IDoorSwitch
+    public class DoorSwitch : IDoorSwitch
     {
         List<DoorSwitchReading> _dsr;
 

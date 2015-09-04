@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeAutomation.BusinessServices
 {
-    interface IDoorSwitch
+    public interface IDoorSwitch
     {
         List<DoorSwitchReading> GetReadings();
         void RecordReading(DoorSwitchReading dsr);

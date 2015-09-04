@@ -1,6 +1,6 @@
-using System.Web.Mvc;
 using Microsoft.Practices.Unity;
-using Unity.Mvc5;
+using System.Web.Http;
+using Unity.WebApi;
 
 namespace HomeAutomation.Web
 {
@@ -15,7 +15,7 @@ namespace HomeAutomation.Web
             
             // e.g. container.RegisterType<ITestService, TestService>();
             
-            DependencyResolver.SetResolver(new UnityDependencyResolver(container));
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityDependencyResolver(container);
         }
     }
 }
