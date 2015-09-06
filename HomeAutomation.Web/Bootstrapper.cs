@@ -1,6 +1,8 @@
 using System.Web.Mvc;
 using Microsoft.Practices.Unity;
 using Unity.Mvc4;
+using HomeAutomation.BusinessServices;
+using System.Web.Http;
 
 namespace HomeAutomation.Web
 {
@@ -9,7 +11,7 @@ namespace HomeAutomation.Web
     public static IUnityContainer Initialise()
     {
       var container = BuildUnityContainer();
-
+      GlobalConfiguration.Configuration.DependencyResolver = new Unity.WebApi.UnityDependencyResolver(container);
       DependencyResolver.SetResolver(new UnityDependencyResolver(container));
 
       return container;
@@ -30,7 +32,7 @@ namespace HomeAutomation.Web
 
     public static void RegisterTypes(IUnityContainer container)
     {
-            container.RegisterType<HomeAutomation.BusinessServices.IDoorSwitch, BusinessServices.DoorSwitch>();
+            container.RegisterType<IDoorSwitch, DoorSwitch>();
     }
   }
 }

@@ -15,17 +15,17 @@ namespace HomeAutomation.Web.Controllers
         {
             _doorSwitch = doorSwitch;
         }
+
+        private DoorSwitchController()
+        {
+
+        }
         // GET: api/DoorSwitch
         public IEnumerable<DoorSwitchReading> Get()
         {
-            return new DoorSwitchReading[] { new DoorSwitchReading { ID = 1 } };
+            return _doorSwitch.GetReadings();
         }
 
-        // GET: api/DoorSwitch/5
-        public string Get(int id)
-        {
-            return "value";
-        }
 
         // POST: api/DoorSwitch
         public void Post([FromBody]DoorSwitchReading value)
@@ -38,9 +38,5 @@ namespace HomeAutomation.Web.Controllers
         {
         }
 
-        // DELETE: api/DoorSwitch/5
-        public void Delete(int id)
-        {
-        }
     }
 }
