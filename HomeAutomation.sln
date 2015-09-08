@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.BusinessServ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.DAL", "HomeAutomation.DAL\HomeAutomation.DAL.csproj", "{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Rest", "HomeAutomation.Rest\HomeAutomation.Rest.csproj", "{DC8C28FB-37AF-4586-B322-0F50AA722991}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
