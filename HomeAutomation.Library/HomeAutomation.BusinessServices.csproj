@@ -50,6 +50,12 @@
     <Compile Include="SensorReading\SensorItems\DoorSwitchItem.cs" />
     <Compile Include="SensorReading\SensorReading.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HomeAutomation.DAL\HomeAutomation.DAL.csproj">
+      <Project>{2a9a8778-d96b-429f-8d08-eead81cc2bd3}</Project>
+      <Name>HomeAutomation.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

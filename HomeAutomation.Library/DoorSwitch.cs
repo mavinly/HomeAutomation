@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HomeAutomation.DAL;
 
 namespace HomeAutomation.BusinessServices
 {
@@ -17,6 +18,9 @@ namespace HomeAutomation.BusinessServices
                 new DoorSwitchReading() {ID = 1, SensorID = 1, ReadingDateTime = new DateTime(2015, 8, 27, 5, 0, 0), DoorOpen = false},
                 new DoorSwitchReading() { ID = 2, SensorID = 1, ReadingDateTime = new DateTime(2015, 8, 27, 5, 0, 0), DoorOpen = false }
              };
+
+            SensorContext context = new SensorContext();
+            
         }
 
         public List<DoorSwitchReading> GetReadings()

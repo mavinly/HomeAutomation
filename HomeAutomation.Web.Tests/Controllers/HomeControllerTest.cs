@@ -5,7 +5,7 @@ using System.Text;
 using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using HomeAutomation.Web;
-using HomeAutomation.Web.Controllers;
+using HomeAutomation.;
 
 namespace HomeAutomation.Web.Tests.Controllers
 {
