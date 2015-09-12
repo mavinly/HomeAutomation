@@ -10,5 +10,6 @@ namespace HomeAutomation.DAL.Models
     {
         public int ID { get; set; }
         public string Type { get; set; }
+        public List<Sensor> Sensors { get; set; }
     }
 }

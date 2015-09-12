@@ -19,8 +19,11 @@ namespace HomeAutomation.BusinessServices
                 new DoorSwitchReading() { ID = 2, SensorID = 1, ReadingDateTime = new DateTime(2015, 8, 27, 5, 0, 0), DoorOpen = false }
              };
 
-            SensorContext context = new SensorContext();
-            
+            using (var db = new SensorContext())
+            {
+                var query = from b in db.DoorSwitchSensor
+                            select b;
+            }
         }
 
         public List<DoorSwitchReading> GetReadings()

@@ -12,6 +12,6 @@ namespace HomeAutomation.DAL.Models
         public int SensorID { get; set; }
         public DateTime ReadingDateTime { get; set; }
 
-        public virtual Sensor Sensor { get; set; }
+        public virtual Sensor Sensors { get; set; }
     }
 }

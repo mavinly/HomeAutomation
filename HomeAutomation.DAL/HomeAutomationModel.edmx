@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HomeAutomationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DoorSwitchSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SensorReadingID" Type="int" Nullable="false" />
+          <Property Name="Open" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SensorTypeID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SensorReading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="SensorID" Type="int" Nullable="false" />
+          <Property Name="ReadingDateTime" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SensorType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Type" Type="varchar" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_DoorSwitchSensor_SensorReading">
+          <End Role="SensorReading" Type="Self.SensorReading" Multiplicity="1" />
+          <End Role="DoorSwitchSensor" Type="Self.DoorSwitchSensor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SensorReading">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoorSwitchSensor">
+              <PropertyRef Name="SensorReadingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sensor_SensorType">
+          <End Role="SensorType" Type="Self.SensorType" Multiplicity="1" />
+          <End Role="Sensor" Type="Self.Sensor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SensorType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sensor">
+              <PropertyRef Name="SensorTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SensorReading_Sensor">
+          <End Role="Sensor" Type="Self.Sensor" Multiplicity="1" />
+          <End Role="SensorReading" Type="Self.SensorReading" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sensor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SensorReading">
+              <PropertyRef Name="SensorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HomeAutomationModelStoreContainer">
+          <EntitySet Name="DoorSwitchSensor" EntityType="Self.DoorSwitchSensor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Sensor" EntityType="Self.Sensor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SensorReading" EntityType="Self.SensorReading" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SensorType" EntityType="Self.SensorType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DoorSwitchSensor_SensorReading" Association="Self.FK_DoorSwitchSensor_SensorReading">
+            <End Role="SensorReading" EntitySet="SensorReading" />
+            <End Role="DoorSwitchSensor" EntitySet="DoorSwitchSensor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sensor_SensorType" Association="Self.FK_Sensor_SensorType">
+            <End Role="SensorType" EntitySet="SensorType" />
+            <End Role="Sensor" EntitySet="Sensor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SensorReading_Sensor" Association="Self.FK_SensorReading_Sensor">
+            <End Role="Sensor" EntitySet="Sensor" />
+            <End Role="SensorReading" EntitySet="SensorReading" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HomeAutomationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DoorSwitchSensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SensorReadingID" Type="Int32" Nullable="false" />
+          <Property Name="Open" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="SensorReading" Relationship="Self.FK_DoorSwitchSensor_SensorReading" FromRole="DoorSwitchSensor" ToRole="SensorReading" />
+        </EntityType>
+        <EntityType Name="Sensor">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SensorTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SensorType" Relationship="Self.FK_Sensor_SensorType" FromRole="Sensor" ToRole="SensorType" />
+          <NavigationProperty Name="SensorReadings" Relationship="Self.FK_SensorReading_Sensor" FromRole="Sensor" ToRole="SensorReading" />
+        </EntityType>
+        <EntityType Name="SensorReading">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="SensorID" Type="Int32" Nullable="false" />
+          <Property Name="ReadingDateTime" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="DoorSwitchSensors" Relationship="Self.FK_DoorSwitchSensor_SensorReading" FromRole="SensorReading" ToRole="DoorSwitchSensor" />
+          <NavigationProperty Name="Sensor" Relationship="Self.FK_SensorReading_Sensor" FromRole="SensorReading" ToRole="Sensor" />
+        </EntityType>
+        <EntityType Name="SensorType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Sensors" Relationship="Self.FK_Sensor_SensorType" FromRole="SensorType" ToRole="Sensor" />
+        </EntityType>
+        <Association Name="FK_DoorSwitchSensor_SensorReading">
+          <End Role="SensorReading" Type="Self.SensorReading" Multiplicity="1" />
+          <End Role="DoorSwitchSensor" Type="Self.DoorSwitchSensor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SensorReading">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="DoorSwitchSensor">
+              <PropertyRef Name="SensorReadingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Sensor_SensorType">
+          <End Role="SensorType" Type="Self.SensorType" Multiplicity="1" />
+          <End Role="Sensor" Type="Self.Sensor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SensorType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Sensor">
+              <PropertyRef Name="SensorTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SensorReading_Sensor">
+          <End Role="Sensor" Type="Self.Sensor" Multiplicity="1" />
+          <End Role="SensorReading" Type="Self.SensorReading" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sensor">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SensorReading">
+              <PropertyRef Name="SensorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HomeAutomationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DoorSwitchSensors" EntityType="Self.DoorSwitchSensor" />
+          <EntitySet Name="Sensors" EntityType="Self.Sensor" />
+          <EntitySet Name="SensorReadings" EntityType="Self.SensorReading" />
+          <EntitySet Name="SensorTypes" EntityType="Self.SensorType" />
+          <AssociationSet Name="FK_DoorSwitchSensor_SensorReading" Association="Self.FK_DoorSwitchSensor_SensorReading">
+            <End Role="SensorReading" EntitySet="SensorReadings" />
+            <End Role="DoorSwitchSensor" EntitySet="DoorSwitchSensors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Sensor_SensorType" Association="Self.FK_Sensor_SensorType">
+            <End Role="SensorType" EntitySet="SensorTypes" />
+            <End Role="Sensor" EntitySet="Sensors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SensorReading_Sensor" Association="Self.FK_SensorReading_Sensor">
+            <End Role="Sensor" EntitySet="Sensors" />
+            <End Role="SensorReading" EntitySet="SensorReadings" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HomeAutomationModelStoreContainer" CdmEntityContainer="HomeAutomationEntities">
+          <EntitySetMapping Name="DoorSwitchSensors">
+            <EntityTypeMapping TypeName="HomeAutomationModel.DoorSwitchSensor">
+              <MappingFragment StoreEntitySet="DoorSwitchSensor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SensorReadingID" ColumnName="SensorReadingID" />
+                <ScalarProperty Name="Open" ColumnName="Open" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sensors">
+            <EntityTypeMapping TypeName="HomeAutomationModel.Sensor">
+              <MappingFragment StoreEntitySet="Sensor">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SensorTypeID" ColumnName="SensorTypeID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SensorReadings">
+            <EntityTypeMapping TypeName="HomeAutomationModel.SensorReading">
+              <MappingFragment StoreEntitySet="SensorReading">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SensorID" ColumnName="SensorID" />
+                <ScalarProperty Name="ReadingDateTime" ColumnName="ReadingDateTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SensorTypes">
+            <EntityTypeMapping TypeName="HomeAutomationModel.SensorType">
+              <MappingFragment StoreEntitySet="SensorType">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

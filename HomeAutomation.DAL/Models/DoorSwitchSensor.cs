@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 namespace HomeAutomation.DAL.Models
 {
     public class DoorSwitchSensor : Sensor
-    {
-        public bool Open { get; set; }
+    {        public bool Open { get; set; }
     }
 }
