@@ -19,11 +19,17 @@ namespace HomeAutomation.BusinessServices
                 new DoorSwitchReading() { ID = 2, SensorID = 1, ReadingDateTime = new DateTime(2015, 8, 27, 5, 0, 0), DoorOpen = false }
              };
 
-            using (var db = new SensorContext())
+            using (var db = new HomeAutomationEntities())
             {
-                var query = from b in db.DoorSwitchSensor
+                var query = from b in db.SensorTypes
                             select b;
             }
+
+            //using (var db = new HomeAutomation.DAL.HomeAutomationEntities)
+            //{
+            //    var query = from b in db.DoorSwitchSensor
+            //                select b;
+            //}
         }
 
         public List<DoorSwitchReading> GetReadings()
@@ -33,7 +39,18 @@ namespace HomeAutomation.BusinessServices
 
         public void RecordReading(DoorSwitchReading dsr)
         {
-            _dsr.Add(dsr);
+            var dss = new DoorSwitchSensor();
+            var sr = new HomeAutomation.DAL.SensorReading();
+
+            using (var db = new HomeAutomationEntities())
+            {
+                sr.SensorID = dsr.SensorID;
+                sr.ReadingDateTime = dsr.ReadingDateTime;
+                
+                dss.
+                
+                db.SensorReadings.Add()
+            }
         }
     }
 }

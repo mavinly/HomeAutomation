@@ -69,11 +69,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HomeAutomationModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\DoorSwitchSensor.cs" />
-    <Compile Include="Models\Sensor.cs" />
-    <Compile Include="Models\SensorReading.cs" />
-    <Compile Include="Models\SensorType.cs" />
-    <Compile Include="Models\TemperatureHumiditySensor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sensor.cs">
       <DependentUpon>HomeAutomationModel.tt</DependentUpon>
