@@ -1,4 +1,4 @@
-﻿@model IEnumerable<HomeAutomation.BusinessServices.DoorSwitchReading>
+﻿@model IEnumerable<HomeAutomation.Model.DoorSwitchReading.DoorSwitchDTO>
 
 @{
     ViewBag.Title = "Index";
@@ -10,37 +10,43 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-@*<table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.SensorID)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DoorOpen)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ReadingDateTime)
-            </th>
-            <th></th>
-        </tr>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Open)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReadingDateTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SensorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SensorID)
+        </th>
+        <th></th>
+    </tr>
 
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SensorID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DoorOpen)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReadingDateTime)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Open)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReadingDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SensorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SensorID)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
 
-    </table>*@
+</table>

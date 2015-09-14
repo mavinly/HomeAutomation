@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using HomeAutomation.Model.DoorSwitchReading;
 
 namespace HomeAutomation.Rest.Controllers
 {
@@ -22,7 +23,7 @@ namespace HomeAutomation.Rest.Controllers
 
         }
         // GET: api/DoorSwitch
-        public IEnumerable<DoorSwitchReading> Get()
+        public IEnumerable<DoorSwitchDTO> Get()
         {
             return _doorSwitch.GetReadings();
         }

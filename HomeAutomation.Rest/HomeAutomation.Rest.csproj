@@ -316,6 +316,10 @@
       <Project>{cb6f8eeb-97d6-400e-b987-76ac7621e031}</Project>
       <Name>HomeAutomation.BusinessServices</Name>
     </ProjectReference>
+    <ProjectReference Include="..\HomeAutomation.Models\HomeAutomation.Models.csproj">
+      <Project>{4a1eac76-95a4-4a8d-a5d8-be6016c787d6}</Project>
+      <Name>HomeAutomation.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

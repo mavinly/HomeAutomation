@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HomeAutomation.BusinessServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,12 +9,19 @@ namespace HomeAutomation.Rest.Controllers
 {
     public class SensorReadingController : Controller
     {
+        private IDoorSwitch _doorSwitch;
+
+        public SensorReadingController(IDoorSwitch doorSwitch)
+        {
+            _doorSwitch = doorSwitch;
+        }
+
         // GET: SensorReading
         public ActionResult Index()
         {
-            HomeAutomation.BusinessServices.DoorSwitch ds = new BusinessServices.DoorSwitch();
+            var model = _doorSwitch.GetReadings();
 
-            return View();
+            return View(model);
         }
 
         // GET: SensorReading/Details/5
