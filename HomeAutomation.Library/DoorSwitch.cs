@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using HomeAutomation.DAL;
+using HomeAutomation.Model.DoorSwitchReading;
 
 namespace HomeAutomation.BusinessServices
 {
@@ -32,25 +33,14 @@ namespace HomeAutomation.BusinessServices
             //}
         }
 
-        public List<DoorSwitchReading> GetReadings()
+        public List<DoorSwitchDTO> GetReadings()
         {
-            return _dsr;
+            return DAL.DoorSwitch.GetReadings();
         }
 
-        public void RecordReading(DoorSwitchReading dsr)
+        public void RecordReading(DoorSwitchDTO dsr)
         {
-            var dss = new DoorSwitchSensor();
-            var sr = new HomeAutomation.DAL.SensorReading();
-
-            using (var db = new HomeAutomationEntities())
-            {
-                sr.SensorID = dsr.SensorID;
-                sr.ReadingDateTime = dsr.ReadingDateTime;
-                
-                dss.
-                
-                db.SensorReadings.Add()
-            }
+            DAL.DoorSwitch.InsertReading(dsr);
         }
     }
 }
