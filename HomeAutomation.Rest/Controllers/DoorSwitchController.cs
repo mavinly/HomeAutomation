@@ -35,7 +35,7 @@ namespace HomeAutomation.Rest.Controllers
         }
 
         // POST: api/DoorSwitch
-        public void Post([FromBody]DoorSwitchReading value)
+        public void Post([FromBody]DoorSwitchDTO value)
         {
             _doorSwitch.RecordReading(value);
         }
