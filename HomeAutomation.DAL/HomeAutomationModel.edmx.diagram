@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="60d6c738aa6a40e78222ded5735b808b" Name="Diagram1">
+      <Diagram DiagramId="1df94a32d71243f1afe427c16b903c3c" Name="Diagram1">
         <EntityTypeShape EntityType="HomeAutomationModel.DoorSwitchSensor" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeAutomationModel.Sensor" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
         <EntityTypeShape EntityType="HomeAutomationModel.SensorReading" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />

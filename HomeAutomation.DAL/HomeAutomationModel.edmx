@@ -9,7 +9,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SensorReadingID" Type="int" Nullable="false" />
           <Property Name="Open" Type="bit" Nullable="false" />
         </EntityType>
@@ -17,7 +17,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SensorTypeID" Type="int" Nullable="false" />
           <Property Name="Name" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
@@ -25,7 +25,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SensorID" Type="int" Nullable="false" />
           <Property Name="ReadingDateTime" Type="datetime" Nullable="false" />
         </EntityType>
@@ -33,7 +33,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Type" Type="varchar" MaxLength="25" Nullable="false" />
         </EntityType>
         <Association Name="FK_DoorSwitchSensor_SensorReading">
@@ -99,7 +99,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SensorReadingID" Type="Int32" Nullable="false" />
           <Property Name="Open" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="SensorReading" Relationship="Self.FK_DoorSwitchSensor_SensorReading" FromRole="DoorSwitchSensor" ToRole="SensorReading" />
@@ -108,7 +108,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SensorTypeID" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="SensorType" Relationship="Self.FK_Sensor_SensorType" FromRole="Sensor" ToRole="SensorType" />
@@ -118,7 +118,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="SensorID" Type="Int32" Nullable="false" />
           <Property Name="ReadingDateTime" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="DoorSwitchSensors" Relationship="Self.FK_DoorSwitchSensor_SensorReading" FromRole="SensorReading" ToRole="DoorSwitchSensor" />
@@ -128,7 +128,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Type" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Sensors" Relationship="Self.FK_Sensor_SensorType" FromRole="SensorType" ToRole="Sensor" />
         </EntityType>

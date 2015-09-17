@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}</ProjectGuid>
+    <ProjectGuid>{F293C2D1-2CB5-42C6-AB8D-E5262A6FE27A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HomeAutomation.DAL</RootNamespace>
@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DoorSwitchReading\DoorSwitch.cs" />
+    <Compile Include="Class1.cs" />
     <Compile Include="DoorSwitchSensor.cs">
       <DependentUpon>HomeAutomationModel.tt</DependentUpon>
     </Compile>
@@ -108,12 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HomeAutomation.Models\HomeAutomation.Models.csproj">
-      <Project>{4a1eac76-95a4-4a8d-a5d8-be6016c787d6}</Project>
-      <Name>HomeAutomation.Models</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
