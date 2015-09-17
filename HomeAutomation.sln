@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Web.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.BusinessServices", "HomeAutomation.Library\HomeAutomation.BusinessServices.csproj", "{CB6F8EEB-97D6-400E-B987-76AC7621E031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.DAL", "HomeAutomation.DAL\HomeAutomation.DAL.csproj", "{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Rest", "HomeAutomation.Rest\HomeAutomation.Rest.csproj", "{DC8C28FB-37AF-4586-B322-0F50AA722991}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HomeAutomation.Models", "HomeAutomation.Models\HomeAutomation.Models.csproj", "{4A1EAC76-95A4-4A8D-A5D8-BE6016C787D6}"
@@ -27,10 +25,6 @@ Global
 		{CB6F8EEB-97D6-400E-B987-76AC7621E031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CB6F8EEB-97D6-400E-B987-76AC7621E031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CB6F8EEB-97D6-400E-B987-76AC7621E031}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2A9A8778-D96B-429F-8D08-EEAD81CC2BD3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DC8C28FB-37AF-4586-B322-0F50AA722991}.Release|Any CPU.ActiveCfg = Release|Any CPU
