@@ -16,6 +16,11 @@ namespace HomeAutomation.Rest.Controllers
             _doorSwitch = doorSwitch;
         }
 
+        public SensorReadingController()
+        {
+            _doorSwitch = new BusinessServices.DoorSwitch();
+        }
+
         // GET: SensorReading
         public ActionResult Index()
         {

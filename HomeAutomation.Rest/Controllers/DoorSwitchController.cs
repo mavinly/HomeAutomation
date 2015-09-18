@@ -18,9 +18,9 @@ namespace HomeAutomation.Rest.Controllers
             _doorSwitch = doorSwitch;
         }
 
-        private DoorSwitchController()
+        public DoorSwitchController()
         {
-
+            _doorSwitch = new BusinessServices.DoorSwitch();
         }
         // GET: api/DoorSwitch
         public IEnumerable<DoorSwitchDTO> Get()
