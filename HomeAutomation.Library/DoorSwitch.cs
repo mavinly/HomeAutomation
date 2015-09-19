@@ -17,13 +17,13 @@ namespace HomeAutomation.BusinessServices
 
         public List<DoorSwitchDTO> GetReadings()
         {
-            DAL.DoorSwitch.DoorSwitch ds = new DAL.DoorSwitch.DoorSwitch();
+            DAL.DoorSwitch.DoorSwitch ds = DAL.DoorSwitch.DoorSwitch.Singleton();
             return ds.GetReadings();
         }
 
         public void RecordReading(DoorSwitchDTO dsr)
         {
-            DAL.DoorSwitch.DoorSwitch ds = new DAL.DoorSwitch.DoorSwitch();
+            DAL.DoorSwitch.DoorSwitch ds = DAL.DoorSwitch.DoorSwitch.Singleton();
             ds.InsertReading(dsr);
         }
     }

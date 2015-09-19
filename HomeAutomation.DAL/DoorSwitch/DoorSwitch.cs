@@ -10,16 +10,27 @@ namespace HomeAutomation.DAL.DoorSwitch
 {
     public class DoorSwitch
     {
-         List<DoorSwitchDTO>  _doorSwitchItems;
+        static List<DoorSwitchDTO>  _doorSwitchItems;
 
-        public DoorSwitch ()
+        static DoorSwitch _instance;
+        public static DoorSwitch Singleton()
         {
+            if (_instance == null)
+            {
+                _instance = new DoorSwitch();
+            }
+
             if (_doorSwitchItems == null)
             {
                 _doorSwitchItems = new List<DoorSwitchDTO>();
             }
-        }        
+            return _instance;
+        }
+                   
+        private DoorSwitch()
+        {
 
+        }
         public List<DoorSwitchDTO> GetReadings()
         {
             return _doorSwitchItems;
