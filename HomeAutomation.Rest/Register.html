@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/Controllers/RegesterCtrl.js"></script>
+</head>
+<body>
+    <div ng-app="SecurityApp">
+        <div ng-controller="RegisterController">
+            <div class="col-md-4">
+                <h3>Register</h3>
+                <p>Email</p><input ng-model="UserName" name="registerEmail"><br>
+                <p>Password</p><input type="text" name="registerPassword"><br>
+                <p>Confirm Password</p><input type="text" name="confirmPassword"><br>
+                <button ng-click="Register()">Register</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
