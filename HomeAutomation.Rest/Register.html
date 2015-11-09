@@ -2,18 +2,56 @@
 <html>
 <head>
     <title></title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
+
     <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-animate.js"></script>
+    <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="Scripts/Controllers/RegesterCtrl.js"></script>
+    <link href="Content/bootstrap.css" rel="stylesheet" />
 </head>
 <body>
     <div ng-app="SecurityApp">
-        <div ng-controller="RegisterController">
-            <div class="col-md-4">
-                <h3>Register</h3>
-                <p>Email</p><input ng-model="UserName" name="registerEmail"><br>
-                <p>Password</p><input type="text" name="registerPassword"><br>
-                <p>Confirm Password</p><input type="text" name="confirmPassword"><br>
+        <div class="container">
+            <div ng-controller="RegisterController">
+                <div class="page-header">
+                    <h3>Register</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p>Email</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <input ng-model="Email" type="text" name="registerEmail">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p>Password</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <input ng-model="Password" type="password" name="registerPassword">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <p>Confirm Password</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <input ng-model="ConfirmPassword" type="password" name="confirmPassword">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <uib-alert ng-repeat="alert in alerts" type="{{alert.type}}">{{alert.msg}}</uib-alert>
+                    </div>
+                </div>
                 <button ng-click="Register()">Register</button>
             </div>
         </div>
