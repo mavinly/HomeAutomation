@@ -13,21 +13,18 @@ myApp.controller('RegisterController', ['$scope', function ($scope) {
             ConfirmPassword: $scope.ConfirmPassword
         };
 
-        ValidatePassword();
-        //var valid;
-        //if ($scope.Password != $scope.ConfirmPassword) {
-        //    valid = 'True';
-        //    $scope.alerts.push({ type: "Warning", msg: 'Passwords do not match' });
-        //}
+        //ValidatePassword();
 
-        //$.ajax({
-        //    type: 'POST',
-        //    url: '/api/Account/Register',
-        //    contentType: 'application/json; charset=utf-8',
-        //    data: JSON.stringify(data)
-        //}).done(function (data) {
-        //    self.result("Done!");
-        //}).fail(showError);
+        $.ajax({
+            type: 'POST',
+            url: '/api/Account/Register',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify(data)
+        }).done(function (data) {
+            self.result("Done!");
+        }).fail(function() {
+            alert("error");
+        });
     };
 
     function ValidatePassword() {
@@ -36,12 +33,12 @@ myApp.controller('RegisterController', ['$scope', function ($scope) {
         var minNumberofChars = 6;
         var maxNumberofChars = 16;
 
-        if ($scope.Password < minNumberofChars || $scope.Password > maxNumberofChars) {
+        if ($scope.Password.length < minNumberofChars || $scope.Password.length > maxNumberofChars) {
             $scope.alerts.push({ type: "warning", msg: 'Passwords must be more than 6 charecters but less than 16' });
             valid = false;
         }
 
-        if ($scope.Password != $scope.ConfirmPassword) {
+        if ($scope.Password !== $scope.ConfirmPassword) {
             valid = 'false';
             $scope.alerts.push({ type: "warning", msg: 'Passwords do not match' });
         }
@@ -53,4 +50,6 @@ myApp.controller('RegisterController', ['$scope', function ($scope) {
 
         return valid;
     }
+
+
 }]);
