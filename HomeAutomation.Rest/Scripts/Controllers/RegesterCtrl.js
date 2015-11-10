@@ -13,43 +13,47 @@ myApp.controller('RegisterController', ['$scope', function ($scope) {
             ConfirmPassword: $scope.ConfirmPassword
         };
 
-        //ValidatePassword();
-
-        $.ajax({
-            type: 'POST',
-            url: '/api/Account/Register',
-            contentType: 'application/json; charset=utf-8',
-            data: JSON.stringify(data)
-        }).done(function (data) {
-            self.result("Done!");
-        }).fail(function() {
-            alert("error");
-        });
+        if (ValidatePassword()) {
+            $.ajax({
+                type: 'POST',
+                url: '/api/Account/Register',
+                contentType: 'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function (data) {
+                self.result("Done!");
+            }).fail(function () {
+                $scope.alerts = [];
+                $scope.alerts.push({ type: "warning", msg: 'Unable to create user' });
+            });
+        }
     };
 
     function ValidatePassword() {
-        var valid = 'true';
+        var valid = true;
         var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
         var minNumberofChars = 6;
         var maxNumberofChars = 16;
 
         if ($scope.Password.length < minNumberofChars || $scope.Password.length > maxNumberofChars) {
-            $scope.alerts.push({ type: "warning", msg: 'Passwords must be more than 6 charecters but less than 16' });
+            PushErrorMessage( 'Passwords must be more than 6 charecters but less than 16');
             valid = false;
         }
 
         if ($scope.Password !== $scope.ConfirmPassword) {
-            valid = 'false';
-            $scope.alerts.push({ type: "warning", msg: 'Passwords do not match' });
+            valid = false;
+            PushErrorMessage('Passwords do not match');
         }
 
         if (!regularExpression.test($scope.Password)) {
-            $scope.alerts.push({ type: "warning", msg: 'Password should contain at least one number and one special character' });
-            valid = 'false';
+            PushErrorMessage('Password should contain at least one number and one special character');
+            valid = false;
         }
 
         return valid;
     }
 
-
+    function PushErrorMessage(message)
+    {
+        $scope.alerts.push({ type: "warning", msg: message});
+    }
 }]);

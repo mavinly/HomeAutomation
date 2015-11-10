@@ -9,6 +9,7 @@
     <script src="Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
     <script src="Scripts/Controllers/RegesterCtrl.js"></script>
     <link href="Content/bootstrap.css" rel="stylesheet" />
+    <link href="Content/Site.css" rel="stylesheet" />
 </head>
 <body>
     <div ng-app="SecurityApp">
@@ -24,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <input ng-model="Email" type="text" name="registerEmail">
+                        <input ng-model="Email" type="email" name="registerEmail" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -34,7 +35,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <input ng-model="Password" type="password" name="registerPassword">
+                        <input ng-model="Password" type="password" name="registerPassword" required/>
                     </div>
                 </div>
                 <div class="row">
@@ -44,7 +45,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-2">
-                        <input ng-model="ConfirmPassword" type="password" name="confirmPassword">
+                        <input ng-model="ConfirmPassword" type="password" name="confirmPassword" required/>
                     </div>
                 </div>
                 <div class="row">
